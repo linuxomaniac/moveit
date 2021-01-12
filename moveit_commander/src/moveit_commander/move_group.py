@@ -496,6 +496,10 @@ class MoveGroupCommander(object):
         else:
             raise MoveItCommanderException("Expected value in the range from 0 to 1 for scaling factor")
 
+    def set_max_cartesian_end_effector_speed(self, value, eef_link):
+        """ Set the maximum speed of the eef link. 0 or negative to disable """
+        self._g.set_max_cartesian_end_effector_speed(value, eef_link)
+
     def go(self, joints=None, wait=True):
         """ Set the target of the group and then move the group to the specified target """
         if type(joints) is bool:
